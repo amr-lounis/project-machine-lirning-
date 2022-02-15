@@ -14,6 +14,8 @@ columns = [
 
 data = pd.read_csv(_path, header=None, names=columns , sep='\t')
 
+data.to_csv('./data_clean.csv', index=False, encoding='utf-8-sig')
+
 def select_one_vs_one(_data,_room1,_room2):
     _rooms_selected = [_room1,_room2]
     for i in range(1,5):
