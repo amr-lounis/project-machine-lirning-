@@ -13,10 +13,16 @@ columns = [
     'wifi_07',
     'room']
 
+#read file
 data = pd.read_csv(_path, header=None, names=columns , sep='\t')
 
-data.to_csv(_path_data+'data_clean.csv', index=False, encoding='utf-8-sig')
+# rescaling data but last one column
+for i in range(0,len(columns)-1):
+    data[columns[i]] = (data[columns[i]] - data[columns[i]].min()) / (data[columns[i]].max()-data[columns[i]].min())
 
+
+data.to_csv(_path_data+'data_clean.csv', index=False, encoding='utf-8-sig')
+    
 #this function create dataset for one vs rest model
 def select_one_vs_rest(_data,_room):
     tmp =  _data.copy()
