@@ -68,7 +68,6 @@ print("\ncm =",cm)
 print("\nclassifier.feature_importances_",classifier.feature_importances_)
 
 #plot
-import seaborn as sns
 sns.heatmap(cm, center=True)
 plt.show()
 
@@ -92,7 +91,7 @@ with open("decistion_tree.log", "w") as fout:
     fout.write(text_representation)
     
 #print image
-fig = plt.figure(figsize=(25,20))
+fig = plt.figure(figsize=(50,50))
 _ = tree.plot_tree(clf, 
             
                     filled=True)
