@@ -44,10 +44,10 @@ def redData(path):
 X,y,data = redData(pathcsv)
 
 X_train,  X_test, y_train, y_test = train_test_split(X, y, test_size= 0.2)
-# print ("X_train.shape",X_train.shape)
-# print ("Y_train.shape",y_train.shape)
-# print ("X_test.shape",X_test.shape)
-# print ("Y_test.shape",y_test.shape)
+print ("X_train.shape",X_train.shape)
+print ("Y_train.shape",y_train.shape)
+print ("X_test.shape",X_test.shape)
+print ("Y_test.shape",y_test.shape)
 
 
 _alpha =0.1 #2
@@ -80,10 +80,10 @@ print('f1 score : {}'.format(f1_s),"\n")
 df_cm = pd.DataFrame(c_m,  index = [i for i in range(0,4)], columns = [i for i in range(0,4)])
 plt.figure(figsize=(5.5,4))
 sns.heatmap(df_cm, annot=True)
-plt.title('Neural Network \nAccuracy:{0:.3f}'.format(metrics.accuracy_score(y_test, prediction)))
-plt.ylabel('True label')
-plt.xlabel('Predicted label')
+plt.title('Neural Network \n Accuracy:{}'.format(metrics.accuracy_score(y_test, prediction)))
+plt.ylabel('true')
+plt.xlabel('predicted')
+plt.show()
 
-
-print(classification_report(y_test,prediction,target_names=['unaccepted','accepted','good','verygood']))
+print(classification_report(y_test,prediction,target_names=['room1','room2','room3','room4']))
 
