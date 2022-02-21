@@ -29,10 +29,6 @@ def redData(path):
     x = np.matrix(xd.values)
     y = np.matrix(yd.values)
     
-    # inset column One for theta[0]
-    ones = np.ones((x.shape[0],1))
-    x = np.hstack([ones, x])
-    
     return x,y,data
 
 #Importing the dataset
