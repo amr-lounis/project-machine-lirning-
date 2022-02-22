@@ -47,7 +47,7 @@ classifier.fit(X_train, y_train)
 classifier.score(X_test , y_test)
 
 #predict jusr one exemple
-y_pred_example = classifier.predict(np.array([1,1,4,5,2,2,1,1]).reshape(1,-1))
+y_pred_example = classifier.predict(np.array([1,1,1,1,1,1,1]).reshape(1,-1))
 print("y_pred_example=",y_pred_example)
 
 #predict 20% of our data (X_test)
@@ -79,7 +79,7 @@ print('DecisionTreeClassifierModel Test Score is : ' , DecisionTreeClassifierMod
 print('DecisionTreeClassifierModel Classes are : ' , DecisionTreeClassifierModel.classes_)
 
 #  Fit the classifier with default hyper-parameters
-clf = DecisionTreeClassifier(random_state=1234)
+clf = DecisionTreeClassifier(random_state=12345)
 model = clf.fit(X, y)
 text_representation = tree.export_text(clf)
 #  print(text_representation)
@@ -87,7 +87,5 @@ with open("decistion_tree.log", "w") as fout:
     fout.write(text_representation)
     
 #print image
-fig = plt.figure(figsize=(50,50))
-_ = tree.plot_tree(clf, 
-            
-                    filled=True)
+fig = plt.figure(figsize=(30,30))
+_ = tree.plot_tree(clf, filled=True)

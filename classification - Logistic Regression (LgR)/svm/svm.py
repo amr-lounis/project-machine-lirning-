@@ -31,22 +31,11 @@ def redData(path):
 #Importing the dataset
 X,y,data = redData('../data/data_clean.csv')
 
-# X_train,  X_test, y_train, y_test = train_test_split(X, y, test_size= 0.2)
-# print ("X_train.shape",X_train.shape)
-# print ("Y_train.shape",y_train.shape)
-# print ("X_test.shape",X_test.shape)
-# print ("Y_test.shape",y_test.shape)
-
-# 60/20/20 (train/cv/test) data split
-data = np.array(data)
-np.random.seed(5)
-np.random.shuffle(data)
-num_train = int(.6 * len(data))
-num_cv = num_train + int(.2 * len(data))
-x_train, y_train = data[:num_train, :-1], data[:num_train, -1]
-x_cv, y_cv = data[num_train:num_cv, :-1], data[num_train:num_cv, -1]
-x_test, y_test = data[num_cv:, :-1], data[num_cv:, -1]
-
+x_train,  x_test, y_train, y_test = train_test_split(X, y, test_size= 0.2)
+print ("X_train.shape",x_train.shape)
+print ("Y_train.shape",y_train.shape)
+print ("X_test.shape",x_test.shape)
+print ("Y_test.shape",y_test.shape)
 
 print(f'm = {x_train.shape[0]}\nn = {x_train.shape[1]}')
 
@@ -54,6 +43,5 @@ svc = svm.SVC(C=0.1, kernel='rbf', gamma=0.1)
 svc.fit(x_train, y_train)
 
 print('Train accuracy = {0}%'.format(np.round(svc.score(x_train, y_train) * 100, 2)))
-print('CV accuracy = {0}%'.format(np.round(svc.score(x_cv, y_cv) * 100, 2)))
 print('Test accuracy = {0}%'.format(np.round(svc.score(x_test, y_test) * 100, 2)))
 
