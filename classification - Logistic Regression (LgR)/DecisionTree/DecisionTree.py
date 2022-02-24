@@ -79,7 +79,7 @@ print('DecisionTreeClassifierModel Test Score is : ' , DecisionTreeClassifierMod
 print('DecisionTreeClassifierModel Classes are : ' , DecisionTreeClassifierModel.classes_)
 
 #  Fit the classifier with default hyper-parameters
-clf = DecisionTreeClassifier(random_state=12345)
+clf = DecisionTreeClassifier(random_state=2)
 model = clf.fit(X, y)
 text_representation = tree.export_text(clf)
 #  print(text_representation)
